@@ -1,0 +1,119 @@
+CREATE TABLE DistribuceAll(
+		[Období] date,
+		[Typ odběratele] nvarchar(35),
+		[ATC] nvarchar(10),
+		[Kód SÚKL] nvarchar(10),
+		[Název přípravku] nvarchar(100),
+		[Doplněk názvu] nvarchar(100),
+		[Držitel registračního rozhodnutí] nvarchar(5),
+		[Země] nvarchar(255),
+		[Typ pohybu] nvarchar(5),
+		[Počet balení] float,
+		[Cena za balení bez obch přirážky a DPH] float,
+		[Celkem finance za všechna balení bez obch přirážky a DPH] float,
+		[Počet definovaných denních dávek/balení] float,
+		[Počet denních definovaných dávek/balení celkem] float,
+		[Způsob výdeje] nvarchar(5),
+		[Hrazeno] nvarchar(5),
+		[Puvod Dat] nvarchar(255)
+);
+INSERT INTO 
+	[DistribuceAll] ([Období]
+      ,[Typ odběratele]
+      ,[ATC]
+      ,[Kód SÚKL]
+      ,[Název přípravku]
+      ,[Doplněk názvu]
+      ,[Držitel registračního rozhodnutí]
+      ,[Země]
+      ,[Typ pohybu]
+      ,[Počet balení]
+      ,[Cena za balení bez obch přirážky a DPH]
+      ,[Celkem finance za všechna balení bez obch přirážky a DPH]
+      ,[Počet definovaných denních dávek/balení]
+      ,[Počet denních definovaných dávek/balení celkem]
+      ,[Způsob výdeje]
+      ,[Hrazeno]
+      ,[Puvod Dat])
+	
+	SELECT [Období]
+		  ,[Typ odběratele]
+		  ,[ATC]
+		  ,[Kód SÚKL]
+		  ,[Název přípravku]
+		  ,[Doplněk názvu]
+		  ,[Držitel registračního rozhodnutí]
+		  ,[Země]
+		  ,[Typ pohybu]
+		  ,[Počet balení]
+		  ,[Cena za balení bez obch přirážky a DPH]
+		  ,null
+		  ,[Počet definovaných denních dávek/balení]
+		  ,null
+		  ,[Způsob výdeje]
+		  ,[Hrazeno]
+		  ,[Puvod Dat]
+	  FROM [dbo].[DistribuceTypA_pracovni]
+
+	  UNION ALL
+
+	  SELECT [Období]
+			,[Typ odběratele]
+			,[ATC]
+			,[Kód SÚKL]
+			,[Název přípravku]
+			,[Doplněk názvu]
+			,[Držitel registračního rozhodnutí]
+			,[Země]
+			,null
+			,[Počet balení]
+			,null
+			,null
+			,null
+			,null
+			,null
+			,null
+		  ,[Puvod Dat]
+	  FROM [dbo].[DistribuceTypB_pracovni]
+
+	  UNION ALL
+
+	  SELECT [Období]
+		  ,[Typ odběratele]
+		  ,[ATC]
+		  ,[Kód SÚKL]
+		  ,[Název přípravku]
+		  ,[Doplněk názvu]
+		  ,[Držitel registračního rozhodnutí]
+		  ,[Země]
+		  ,[Typ pohybu]
+		  ,[Počet balení]
+		  ,[Cena za balení bez obch přirážky a DPH]
+		  ,[Celkem finance za všechna balení bez obch přirážky a DPH]
+		  ,[Počet definovaných denních dávek/balení]
+		  ,[Počet denních definovaných dávek/balení celkem]
+		  ,[Způsob výdeje]
+		  ,null
+		  ,[Puvod Dat]
+	  FROM [dbo].[DistribuceTypC_pracovni]
+
+	  UNION ALL
+
+	  SELECT [Období]
+			,[Typ odběratele]
+			,[ATC]
+			,[Kód SÚKL]
+			,[Název přípravku]
+			,[Doplněk názvu]
+			,[Držitel registračního rozhodnutí]
+			,[Země]
+			,[Typ pohybu]
+			,[Počet balení]
+			,[Cena za balení bez obch přirážky a DPH]
+			,[Celkem finance za všechna balení bez obch přirážky a DPH]
+			,[Počet definovaných denních dávek/balení]
+			,[Počet denních definovaných dávek/balení celkem]
+			,[Způsob výdeje]
+			,null
+			,[Puvod Dat]
+	  FROM [dbo].[DistribuceTypD_pracovni]
